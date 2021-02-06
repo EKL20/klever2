@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Save</title>
+<!-- Boostrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+		<form action="#" th:action="@{/save}" th:object="${tienda}"
+			method="post">
+			<div class="form-group">
+				<label for="nombre">Nombre</label> <input type="text"
+					class="form-control" id="nombre" th:field="*{nombre}" name="nombre">
+			</div>
+			<input type="hidden" th:field="*{id}" name="id" id="id">
+			<div class="form-group">
+				<label for="ubicacion">Ubicación</label> <input type="text"
+					class="form-control" id="ubicacion" th:field="*{ubicacion}"
+					name="ubicacion">
+			</div>
+
+			<div class="form-group">
+				<label for="lider">Lider Tienda</label> <input type="text"
+					class="form-control" id="lider" th:field="*{lider}" name="lider">
+			</div>
+
+			<div class="form-group">
+				<label for="sector">Sector</label> <input type="text"
+					class="form-control" id="sector" th:field="*{sector}" name="sector">
+			</div>
+
+			<button type="submit" class="btn btn-succes">Save</button>
+		</form>
+	</div>
+</body>
+</html>

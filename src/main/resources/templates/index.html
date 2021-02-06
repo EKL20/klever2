@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Tiendas</title>
+<!-- Boostrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+
+	<div class="container">
+		<br>
+		<div>
+			<a href="/save/null" class="btn btn-primary">Agg</a>
+		</div>
+		<!--<h2 th:if="${list.isEmpty()}">Not file found</h2> -->
+		<div th:if="${!list.isEmpty()}">
+			<h2>Tiendas</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Ubicación</th>
+						<th>Lider Tienda</th>
+						<th>Sector</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="tienda : ${list}">
+						<td th:text="${tienda.nombre}"></td>
+						<td th:text="${tienda.ubicacion}"></td>
+						<td th:text="${tienda.lider}"></td>
+						<td th:text="${tienda.sector}"></td>
+						<td><a class="btn btn-info" th:href="@{/save/{id}(id=tienda.id)}">Update</a></td>
+						<td><a class="btn btn-danger" th:href="@{/delete/{id}(id=tienda.id)}">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
